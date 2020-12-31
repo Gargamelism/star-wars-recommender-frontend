@@ -54,12 +54,21 @@ function App() {
     const emptyListMsg = "The Force is weak with this search";
 
     return (
-        <div className="container mx-auto py-16 flex flex-col items-center">
-            <Filter setFilterVal={setFilterVal} placeholder="Search for character" />
+        <div className="container mx-auto py-16 flex flex-col items-center max-w-lg max-h-lg">
+            <div className="flex items-center justify-center h-5/6 w-full my-2">
+                <h1 className="absolute text-center text-white text-2xl">
+                    Get Star Wars Movie Recommendations
+                </h1>
+                <img src={process.env.PUBLIC_URL + "/header-image.jpg"} />        
+            </div>
+            <Filter setFilterVal={setFilterVal} placeholder="Start typing to search for a character" />
             {
                 isLoading ? 
                     <span>Loading...</span> :
-                    <List filterVal={filterVal} listItem={CheckboxCard} items={characters} emptyListMsg={emptyListMsg} />
+                    <div className="flex flex-col items-center">
+                        <h1>Please Select Your Favorite Characters:</h1>
+                        <List filterVal={filterVal} listItem={CheckboxCard} items={characters} emptyListMsg={emptyListMsg} />
+                    </div>
             }
         </div>
     );
