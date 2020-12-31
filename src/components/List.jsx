@@ -1,17 +1,18 @@
 import React from 'react';
 
-export default function List ({ filterVal, listItem, items }) {
-    
+export default function List ({ filterVal, listItem, items, emptyListMsg }) {
+    if(!items) {
+        return (<span>{emptyListMsg}</span> );
+    }
+
     const filteredItems = items.filter(({name}) => (
         name.toLowerCase().includes(filterVal.toLowerCase())
         ))
-        .map((item) => (listItem(item)));
-
-
+        .map((item) => {return listItem(item);});
 
     return (
-        <div className="flex justify-center w-9/12">
-            {filteredItems.length > 0 ? filteredItems : 'The Force is weak with this search'}
+        <div className="flex flex-col justify-center items-center w-9/12 md:w-1/2">
+            { filteredItems.length > 0 ? filteredItems : emptyListMsg }
         </div>
     );
 }
