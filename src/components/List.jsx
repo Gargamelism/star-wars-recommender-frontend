@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function List ({ filterVal, listItem, items, emptyListMsg }) {
     if(!items) {
@@ -11,7 +11,7 @@ export default function List ({ filterVal, listItem, items, emptyListMsg }) {
         .map((item) => {return listItem(item);});
 
     return (
-        <div className="flex flex-col justify-center items-center w-9/12 md:w-1/2">
+        <div className="flex flex-col justify-center items-center w-9/12 md:w-max md:w-1/2">
             { filteredItems.length > 0 ? filteredItems : emptyListMsg }
         </div>
     );

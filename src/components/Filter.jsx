@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export default function Filter ({ setFilterVal, placeholder = '' }) {
+export default function Filter ({ setFilterVal, placeholder = "" }) {
     
     const handleFilterInput = (event) => {
         event.preventDefault();
@@ -12,7 +12,7 @@ export default function Filter ({ setFilterVal, placeholder = '' }) {
         <input 
             type="text" 
             id="characters-filter" 
-            className="w-9/12 rounded-lg border-black border-2" 
+            className="w-full rounded-lg border-black border-2 mr-0 md:mr-2 mb-2 md:mb-0" 
             onChange={handleFilterInput} 
             placeholder={placeholder}
         />
