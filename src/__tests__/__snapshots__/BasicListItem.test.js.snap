@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders BasicListItem 1`] = `
+<span
+  className="flex-grow text-center border-2 rounded border-gray-400 m-1 px-1"
+>
+  123
+</span>
+`;

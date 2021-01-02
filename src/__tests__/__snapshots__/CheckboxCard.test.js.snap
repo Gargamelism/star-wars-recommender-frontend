@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CheckboxCard 1`] = `
+<div
+  className="flex justify-around items-center border-2 rounded border-gray-400 m-2 w-full md:w-96"
+>
+  <input
+    checked={false}
+    className="flex-none w-8"
+    onChange={[Function]}
+    type="checkbox"
+    value="222"
+  />
+  <span
+    className="flex-grow text-center"
+  >
+    1222
+  </span>
+</div>
+`;
