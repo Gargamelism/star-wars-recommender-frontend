@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getCookie, setCookie } from "../util/cookies";
+import { getCookie } from "../util/cookies";
 import { countFavoriteCharacters, getFavoriteCharacters } from "../util/favoriteCharacters";
 import SWData from "../util/SWData";
 
@@ -30,7 +30,7 @@ export default function SuggestionList({ id, favoriteCharacters }) {
                     setFavoriteCharacters(favoriteCharacters);
                 });
         }
-        else if(!stateId && stateFavoriteCharacters.length == 0) {
+        else if(!stateId && stateFavoriteCharacters.length === 0) {
             const userId = getCookie("userid");
             setId(userId);
             getFavoriteCharacters(userId)
@@ -84,7 +84,7 @@ export default function SuggestionList({ id, favoriteCharacters }) {
                 <h1 className="absolute text-center text-white text-2xl">
                     Your Movie Recommendations
                 </h1>
-                <img src={process.env.PUBLIC_URL + "/header-image.jpg"} />
+                <img src={process.env.PUBLIC_URL + "/header-image.jpg"} alt="looking at earch through spaceship window" />
             </div>
             <div className="flex flex-col justify-center items-center w-full">
                 {
@@ -93,7 +93,7 @@ export default function SuggestionList({ id, favoriteCharacters }) {
                 { 
                     shareLink && 
                     <>
-                        <a href={shareLink} target="_blank" className="w-max text-blue-500 hover:text-blue-700 hover:underline">{shareLink}</a>
+                        <a href={shareLink} target="_blank" rel="noreferrer" className="w-max text-blue-500 hover:text-blue-700 hover:underline">{shareLink}</a>
                         <span>Link has been copied to your clipboard!</span>
                     </>
                 }

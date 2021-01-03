@@ -61,7 +61,7 @@ export default function ChooseCharacters({favoriteCharacters, dispatchFavoriteCh
                 <h1 className="absolute text-center text-white text-2xl">
                     Get Star Wars Movie Recommendations
                 </h1>
-                <img src={process.env.PUBLIC_URL + "/header-image.jpg"} />
+                <img src={process.env.PUBLIC_URL + "/header-image.jpg"} alt="looking at earch through spaceship window" />
             </div>
             <div className="flex flex-col items-center md:flex-row w-full">
                 <Filter setFilterVal={setFilterVal} placeholder="Start typing to search for a character" />
