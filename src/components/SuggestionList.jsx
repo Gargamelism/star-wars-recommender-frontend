@@ -47,6 +47,10 @@ export default function SuggestionList({ id, favoriteCharacters }) {
     useEffect(() => {
         const swData = new SWData();
         swData.getMovies().then((movies) => {
+            movies = movies.filter((movie) => (
+                movie.characters.some((movieCharacter) =>
+                    (favoriteCharacters.indexOf(movieCharacter) !== -1))
+            ));
 
             movies.sort((movieA, movieB) => {
                 const movieAFavoriteCharactersCount = countFavoriteCharacters(stateFavoriteCharacters, movieA.characters);
@@ -73,7 +77,6 @@ export default function SuggestionList({ id, favoriteCharacters }) {
 
             setMovies(movies);
             setIsLoading(false);
-
         });
 
     }, [stateId, stateFavoriteCharacters.length]);
@@ -88,7 +91,9 @@ export default function SuggestionList({ id, favoriteCharacters }) {
             </div>
             <div className="flex flex-col justify-center items-center w-full">
                 {
-                    isShareable && <Button value="Share!" onClick={handleCreateShareLink} />
+                    isShareable && 
+                        movies.length > 0 && 
+                        <Button value="Share!" onClick={handleCreateShareLink} />
                 }
                 { 
                     shareLink && 
@@ -102,7 +107,7 @@ export default function SuggestionList({ id, favoriteCharacters }) {
                 isLoading ?
                     <span>Loading...</span> :
                     <div className="flex flex-col items-center">
-                        <List filterVal="" listItem={BasicListItem} items={movies} emptyListMsg="" />
+                        <List filterVal="" listItem={BasicListItem} items={movies} emptyListMsg="Please choose at least one favorite character" />
                     </div>
             }
             <ButtonLink value={goBackText} to="/" params="" />
